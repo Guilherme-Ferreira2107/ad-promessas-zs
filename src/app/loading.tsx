@@ -66,7 +66,8 @@ const LoadingScreen = () => {
           className="mt-8"
         >
           <blockquote className="text-gray-400 text-xs sm:text-sm italic">
-            "Porque eu bem sei os pensamentos que tenho a vosso respeito..."
+            {"''"}Porque eu bem sei os pensamentos que tenho a vosso respeito...
+            {"''"}
           </blockquote>
           <cite className="text-blue-300 text-xs font-medium mt-1 block not-italic">
             Jeremias 29:11

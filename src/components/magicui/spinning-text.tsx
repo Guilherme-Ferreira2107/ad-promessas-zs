@@ -57,7 +57,7 @@ export function SpinningText({
   const letters = children.split("");
   letters.push(" ");
 
-  const finalTransition = {
+  const finalTransition: any = {
     ...BASE_TRANSITION,
     ...transition,
     duration: (transition as { duration?: number })?.duration ?? duration,

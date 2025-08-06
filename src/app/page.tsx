@@ -176,7 +176,7 @@ export default function Home() {
             aria-label="Vídeo de fundo da igreja"
           >
             <source src="/video.mp4" type="video/mp4" />
-            <img
+            <Image
               src="/1.jpg"
               alt="Imagem de fundo da igreja"
               className="w-full h-full object-cover"
@@ -224,7 +224,7 @@ export default function Home() {
           <div className="mb-10 font-bold">
             <blockquote className="text-gray-400 text-xs sm:text-sm italic max-w-3xl mx-auto">
               <TextAnimate animation="blurInUp" once delay={0.8} duration={0.5}>
-                "Portanto ide, fazei discípulos de todas as nações..."
+                Portanto ide, fazei discípulos de todas as nações...
               </TextAnimate>
             </blockquote>
 
