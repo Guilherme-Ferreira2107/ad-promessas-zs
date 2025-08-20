@@ -72,7 +72,7 @@ export const AboutSection = () => {
           <Link
             href="https://www.instagram.com/promessaszs/"
             target="_blank"
-            className="w-full md:w-[200px] bg-primary text-black px-6 py-3 rounded-md font-semibold hover:bg-blue-300 transition duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 text-base sm:text-lg flex items-center justify-center gap-2"
+            className="w-full md:w-[240px] bg-primary text-black px-6 py-3 rounded-md font-semibold hover:bg-blue-300 transition duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 text-base sm:text-lg flex items-center justify-center gap-2"
             aria-label="Saiba mais sobre a igreja"
           >
             Acompanhe-nos
