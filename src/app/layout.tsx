@@ -13,9 +13,9 @@ const geistRalewayMono = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Promessas Pedreira",
+  title: "AD Promessas Pedreira",
   description:
-    "Igreja Assembleia de Deus Ministério Promessas em Pedreira - SP",
+    "Igreja Assémbleia de Deus Ministério Promessas em Pedreira - SP",
 };
 
 export default function RootLayout({
@@ -24,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-br" className="scroll-smooth">
+    <html lang="pt-br" className="scroll-smooth" suppressHydrationWarning>
       <body
         className={`${geistRaleway.variable} ${geistRalewayMono.variable}  antialiased`}
       >

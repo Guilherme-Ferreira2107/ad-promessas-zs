@@ -4,20 +4,20 @@ import { TextAnimate } from "@/components/magicui/text-animate";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useForm } from "react-hook-form";
-import LoadingScreen from "./loading";
 import { useEffect, useState } from "react";
 import { SpinningText } from "@/components/magicui/spinning-text";
+import { ArrowRightIcon, BookOpenIcon, PlayIcon } from "lucide-react";
+import PrayerFormRefactored from "@/components/magicui/contacts";
+import { fadeUp } from "@/lib/utils";
 
 export default function Home() {
-  const { register, handleSubmit } = useForm();
-  const [isLoading, setIsLoading] = useState(true);
+  const [, setIsLoading] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
-    }, 2000);
+    }, 3000);
   }, []);
 
   const onSubmit = (data: any) => {
@@ -32,26 +32,62 @@ export default function Home() {
     { name: "Contato", href: "#formulario" },
   ];
 
-  const images = ["/1.jpg", "/2.jpg", "/3.jpg", "/4.jpg"];
-  const posts = [
+  // const images = ["/1.jpg", "/2.jpg", "/3.jpg", "/4.jpg"];
+  // const posts = [
+  //   {
+  //     title: "A Fé que Transforma",
+  //     description: "Reflexão sobre Hebreus 11",
+  //     link: "#",
+  //   },
+  //   {
+  //     title: "Vivendo em Comunhão",
+  //     description: "Mensagem sobre Atos 2",
+  //     link: "#",
+  //   },
+  // ];
+
+  const ministracoes = [
     {
-      title: "A Fé que Transforma",
-      description: "Reflexão sobre Hebreus 11",
+      title: "A Graça que Transforma",
+      description:
+        "Uma mensagem poderosa sobre como a graça de Deus pode transformar completamente nossas vidas e nos dar uma nova perspectiva.",
       link: "#",
+      date: "15 de Agosto, 2025",
+      image: "/1.jpg",
     },
     {
-      title: "Vivendo em Comunhão",
-      description: "Mensagem sobre Atos 2",
+      title: "Fé em Tempos Difíceis",
+      description:
+        "Reflexões bíblicas sobre como manter a fé firme mesmo quando enfrentamos os maiores desafios da vida.",
       link: "#",
+      date: "8 de Agosto, 2025",
+      image: "/2.jpg",
+    },
+    {
+      title: "O Amor que Não Falha",
+      description:
+        "Explorando o amor incondicional de Cristo e como podemos refletir esse amor em nossos relacionamentos diários.",
+      link: "#",
+      date: "1 de Agosto, 2025",
+      image: "/3.jpg",
+    },
+    {
+      title: "Propósito Divino",
+      description:
+        "Descobrindo o plano de Deus para nossas vidas e como caminhar no centro da vontade divina com confiança.",
+      link: "#",
+      date: "25 de Julho, 2025",
+      image: "/4.jpg",
     },
   ];
 
-  if (isLoading) {
-    return <LoadingScreen />;
-  }
+  // if (isLoading) {
+  //   return <LoadingScreen />;
+  // }
 
   return (
     <div className="font-sans" id="home">
+      {/* header */}
       <motion.nav
         className="fixed top-0 left-0 w-full z-50 bg-[#111] backdrop-blur-md text-white px-6 py-4 flex justify-between items-center"
         initial={{ y: -50, opacity: 0 }}
@@ -164,6 +200,7 @@ export default function Home() {
         </AnimatePresence>
       </motion.nav>
 
+      {/* hero */}
       <section className="relative min-h-screen flex flex-col justify-center items-center text-center px-4 overflow-hidden font-[var(--font-sans)]">
         <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
           <video
@@ -180,6 +217,7 @@ export default function Home() {
               src="/1.jpg"
               alt="Imagem de fundo da igreja"
               className="w-full h-full object-cover"
+              fill
             />
           </video>
         </div>
@@ -214,17 +252,18 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.6 }}
-              className="text-lg sm:text-xl md:text-2xl text-gray-200 font-light max-w-2xl mx-auto"
+              className="text-lg sm:text-xl md:text-2xl text-gray-100 font-light max-w-2xl mx-auto"
             >
-              à um lugar de esperança, fé e comunhão.
+              a um lugar de esperança, fé e comunhão.
             </motion.p>
           </div>
 
           {/* Versículo bíblico */}
           <div className="mb-10 font-bold">
-            <blockquote className="text-gray-400 text-xs sm:text-sm italic max-w-3xl mx-auto">
+            <blockquote className="text-gray-200 text-xs sm:text-sm italic max-w-3xl mx-auto">
               <TextAnimate animation="blurInUp" once delay={0.8} duration={0.5}>
-                Portanto ide, fazei discípulos de todas as nações...
+                Vinde a mim, todos os que estais cansados e oprimidos, e eu vos
+                aliviarei
               </TextAnimate>
             </blockquote>
 
@@ -236,7 +275,7 @@ export default function Home() {
                 delay={1.0}
                 duration={0.9}
               >
-                Mateus 28:19
+                Mateus 11:28
               </TextAnimate>
             </cite>
           </div>
@@ -289,103 +328,182 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-background text-white py-16 px-6" id="sobre">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-primary mb-6">
-            Sobre a Igreja
-          </h2>
-          <p className="mb-4">
-            Fundada em 2012, a Assembleia de Deus Promessas - Promessas Pedreira
-            é liderada pelo Pastor César Ferreira da Silva. Nossa missão é
-            discipular, amar e servir.
-          </p>
-          <ul className="list-disc list-inside">
-            <li>
-              <strong>Missão:</strong> Levar o evangelho com excelência
-            </li>
-            <li>
-              <strong>Visão:</strong> Comunhão, discipulado e transformação
-            </li>
-            <li>
-              <strong>Valores:</strong> Fé, amor, serviço e integridade
-            </li>
-          </ul>
-        </div>
+      {/* sobre a igreja */}
+      <section className="bg-background text-white py-20 px-6" id="sobre">
+        <motion.div
+          className="max-w-4xl mx-auto text-center"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          {/* Título */}
+          <motion.h2
+            className="relative inline-block text-3xl sm:text-4xl font-bold text-primary mb-10 after:block after:mx-auto after:mt-2 after:h-[2px] after:w-12 after:bg-primary"
+            variants={fadeUp}
+            custom={0}
+          >
+            Sobre a Promessas Pedreira
+          </motion.h2>
+
+          {/* Parágrafo principal */}
+          <motion.p
+            className="text-gray-800 text-lg mb-8 leading-relaxed"
+            variants={fadeUp}
+            custom={1}
+          >
+            Desde 2012, a Assembleia de Deus Promessas – unidade Pedreira tem
+            sido um lugar de acolhimento, discipulado e crescimento espiritual.
+            Sob a liderança do Pastor César Ferreira da Silva, seguimos firmes
+            no propósito de viver e compartilhar o amor de Cristo.
+          </motion.p>
+
+          {/* Blocos de Missão, Visão e Valores */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-left text-sm sm:text-base">
+            {[
+              {
+                titulo: "Missão",
+                texto:
+                  "Discipular vidas com excelência, amor e compromisso com o Reino.",
+              },
+              {
+                titulo: "Visão",
+                texto:
+                  "Ser uma igreja acolhedora, centrada em Cristo, que promove comunhão e transformação.",
+              },
+              {
+                titulo: "Valores",
+                texto:
+                  "Fé, amor, serviço, integridade e compromisso com a Palavra.",
+              },
+            ].map((item, index) => (
+              <motion.div key={index} variants={fadeUp} custom={index + 2}>
+                <h3 className="text-primary font-semibold mb-2">
+                  {item.titulo}
+                </h3>
+                <p className="text-gray-800">{item.texto}</p>
+
+                <div className="w-8 h-0.5 bg-secondary mt-4 group-hover:w-12 transition-all duration-300"></div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Botão */}
+          <motion.div
+            className="max-w-sm mx-auto mt-6"
+            variants={fadeUp}
+            custom={5}
+          >
+            <Link
+              href="/sobre-nos"
+              className="w-full bg-primary text-black px-6 py-3 rounded-md font-semibold hover:bg-blue-300 transition duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 text-base sm:text-lg flex items-center justify-center gap-2"
+              aria-label="Saiba mais sobre a igreja"
+            >
+              Saiba mais
+              <ArrowRightIcon className="w-5 h-5" />
+            </Link>
+          </motion.div>
+        </motion.div>
       </section>
 
-      <section className="bg-background text-white py-16 px-6" id="galeria">
-        <h2 className="text-3xl font-bold text-primary mb-6 text-center">
-          Galeria
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-          {images.map((src, i) => (
-            <motion.img
-              key={i}
-              src={src}
-              alt={`Galeria ${i}`}
-              className="rounded-lg shadow-lg"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: i * 0.2 }}
-              viewport={{ once: true }}
-            />
-          ))}
-        </div>
-      </section>
+      {/* ministrações */}
+      <motion.section
+        className="bg-black text-white py-16 px-6 mx-auto text-center"
+        id="blog"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        {/* Título com linha abaixo */}
+        <motion.h2
+          className="relative inline-block text-3xl sm:text-4xl font-bold text-primary mb-10 after:block after:mx-auto after:mt-2 after:h-[2px] after:w-12 after:bg-primary"
+          variants={fadeUp}
+          custom={0}
+        >
+          Últimas Ministrações
+        </motion.h2>
 
-      <section className="bg-background text-white py-16 px-6" id="blog">
-        <h2 className="text-3xl font-bold text-primary mb-6 text-center">
-          Mensagens
-        </h2>
-        <div className="grid md:grid-cols-2 gap-6">
-          {posts.map((post, i) => (
+        {/* Grid de cards */}
+        <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+          {ministracoes.map((post, i) => (
             <motion.div
               key={i}
-              className="bg-white text-black p-6 rounded-lg shadow-lg"
-              whileHover={{ scale: 1.03 }}
+              className="relative bg-white text-black rounded-lg shadow-lg overflow-hidden group cursor-pointer"
+              variants={fadeUp}
+              custom={i + 1}
+              whileHover={{ y: -5 }}
+              transition={{ duration: 0.3 }}
             >
-              <h3 className="text-xl font-bold mb-2">{post.title}</h3>
-              <p className="mb-4">{post.description}</p>
-              <a href={post.link} className="text-primary font-semibold">
-                Leia Mais
-              </a>
+              {/* Imagem no topo */}
+              <div className="h-48 overflow-hidden">
+                <img
+                  src={post.image}
+                  alt={post.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+
+              {/* Decoração animada (mantido) */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5">
+                  <motion.div
+                    className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-primary/30 to-secondary/30"
+                    initial={{ x: "-100%" }}
+                    animate={{ x: "100%" }}
+                    transition={{
+                      repeat: Infinity,
+                      duration: 2,
+                      ease: "easeInOut",
+                    }}
+                  />
+                  <motion.div
+                    className="absolute bottom-0 right-0 w-24 h-24 rounded-full bg-primary/75"
+                    animate={{
+                      scale: [1, 1.2, 1],
+                      opacity: [0.5, 0.8, 0.5],
+                    }}
+                    transition={{
+                      repeat: Infinity,
+                      duration: 3,
+                      ease: "easeInOut",
+                    }}
+                  />
+                </div>
+              </div>
+
+              {/* Conteúdo */}
+              <div className="relative z-10 p-6">
+                <div className="flex items-start gap-3 mb-3">
+                  <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                    <BookOpenIcon className="w-5 h-5 text-primary" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-xl font-bold mb-1 group-hover:text-primary transition-colors duration-300">
+                      {post.title}
+                    </h3>
+                    <p className="text-sm text-gray-500">{post.date}</p>
+                  </div>
+                </div>
+                <p className="mb-4 text-gray-700 leading-relaxed">
+                  {post.description}
+                </p>
+                <motion.a
+                  href={post.link}
+                  className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all duration-300"
+                  whileHover={{ x: 2 }}
+                >
+                  Leia Mais
+                  <PlayIcon className="w-4 h-4" />
+                </motion.a>
+              </div>
             </motion.div>
           ))}
         </div>
-      </section>
+      </motion.section>
 
-      <section className="bg-background text-white py-16 px-6" id="formulario">
-        <h2 className="text-3xl font-bold text-primary mb-6 text-center">
-          Pedido de Oração
-        </h2>
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className="max-w-xl mx-auto space-y-4"
-        >
-          <input
-            {...register("nome")}
-            placeholder="Nome"
-            className="w-full p-3 rounded bg-white text-black"
-          />
-          <input
-            {...register("email")}
-            placeholder="E-mail"
-            className="w-full p-3 rounded bg-white text-black"
-          />
-          <textarea
-            {...register("mensagem")}
-            placeholder="Mensagem"
-            className="w-full p-3 rounded bg-white text-black h-32"
-          />
-          <button
-            type="submit"
-            className="bg-primary text-black px-6 py-2 rounded font-semibold"
-          >
-            Enviar Pedido
-          </button>
-        </form>
-      </section>
+      {/* contatos */}
+      <PrayerFormRefactored />
 
+      {/* informações */}
       <section className="bg-background text-white py-16 px-6" id="doacoes">
         <h2 className="text-3xl font-bold text-primary mb-6 text-center">
           Doações
