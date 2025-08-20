@@ -48,7 +48,6 @@ export default function Home() {
   const links = [
     { name: "Início", href: "#home" },
     { name: "Sobre", href: "#sobre" },
-    { name: "Galeria", href: "#galeria" },
     { name: "Mensagens", href: "#blog" },
     { name: "Contato", href: "#formulario" },
   ];
