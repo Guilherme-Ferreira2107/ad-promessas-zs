@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
+import { Header } from "@/components/sections/header";
+import { Footer } from "@/components/sections/footer";
 
 const geistRaleway = Montserrat({
   variable: "--font-geist-sans",
@@ -28,7 +30,9 @@ export default function RootLayout({
       <body
         className={`${geistRaleway.variable} ${geistRalewayMono.variable}  antialiased`}
       >
+        <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

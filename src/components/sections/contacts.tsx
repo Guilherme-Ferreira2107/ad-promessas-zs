@@ -2,17 +2,17 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import {
   UserIcon,
-  MailIcon,
   MessageSquareIcon,
   HeartIcon,
   CheckIcon,
   SendIcon,
+  PhoneIcon,
 } from "lucide-react";
 import { fadeUp } from "@/lib/utils";
 
 interface FormData {
   nome: string;
-  email: string;
+  phone: string;
   mensagem: string;
 }
 
@@ -24,10 +24,10 @@ interface InputField {
   label: string;
 }
 
-const PrayerFormRefactored: React.FC = () => {
+export const ContactsSection: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
     nome: "",
-    email: "",
+    phone: "",
     mensagem: "",
   });
   const [focusedField, setFocusedField] = useState<string>("");
@@ -59,11 +59,11 @@ const PrayerFormRefactored: React.FC = () => {
       newErrors.nome = "Nome é obrigatório";
     }
 
-    if (!formData.email.trim()) {
-      newErrors.email = "E-mail é obrigatório";
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = "E-mail inválido";
-    }
+    // if (!formData.email.trim()) {
+    //   newErrors.email = "Tele é obrigatório";
+    // } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+    //   newErrors.email = "E-mail inválido";
+    // }
 
     if (!formData.mensagem.trim()) {
       newErrors.mensagem = "Mensagem é obrigatória";
@@ -87,7 +87,7 @@ const PrayerFormRefactored: React.FC = () => {
     // Reset após 3 segundos
     setTimeout(() => {
       setIsSubmitted(false);
-      setFormData({ nome: "", email: "", mensagem: "" });
+      setFormData({ nome: "", phone: "", mensagem: "" });
     }, 3000);
   };
 
@@ -100,11 +100,11 @@ const PrayerFormRefactored: React.FC = () => {
       label: "Nome",
     },
     {
-      name: "email",
-      placeholder: "seu.email@exemplo.com",
-      type: "email",
-      icon: MailIcon,
-      label: "E-mail",
+      name: "phone",
+      placeholder: "(XX) XXXXX-XXXX",
+      type: "text",
+      icon: PhoneIcon,
+      label: "Telefone/Celular",
     },
   ];
 
@@ -131,7 +131,7 @@ const PrayerFormRefactored: React.FC = () => {
 
   if (isSubmitted) {
     return (
-      <section className="bg-background text-white py-16 px-6" id="formulario">
+      <section className="bg-background text-white py-16 px-6">
         <motion.div
           className="max-w-xl mx-auto text-center"
           initial={{ opacity: 0, scale: 0.9 }}
@@ -170,7 +170,8 @@ const PrayerFormRefactored: React.FC = () => {
   }
 
   return (
-    <section className="bg-background text-white py-16 px-6" id="formulario">
+    <section className="bg-background text-white py-16 px-6">
+      <div id="pedidos" className="absolute mt-[-140px]"></div>
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -355,7 +356,7 @@ const PrayerFormRefactored: React.FC = () => {
         <motion.div
           variants={fadeUp}
           custom={6}
-          className="text-center mt-8 text-gray-400 text-sm"
+          className="text-center mt-8 text-gray-700 text-sm"
         >
           <p>
             Seus dados estão seguros conosco e serão usados apenas para fins de
@@ -366,5 +367,3 @@ const PrayerFormRefactored: React.FC = () => {
     </section>
   );
 };
-
-export default PrayerFormRefactored;
