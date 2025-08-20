@@ -128,7 +128,7 @@ export const HeroSection = () => {
           duration={20}
           radius={4}
         >
-          ore • leia • cresça •
+          ore • leia • jejue •
         </SpinningText>
       </div>
     </section>

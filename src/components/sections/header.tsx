@@ -9,11 +9,11 @@ export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const links = [
-    { name: "Início", href: "#home" },
-    { name: "Sobre", href: "#sobre" },
-    { name: "Ministrações", href: "#ministracoes" },
-    { name: "Pedidos", href: "#pedidos" },
-    { name: "Dizimos e Ofertas", href: "#dizimos" },
+    { name: "Início", href: "/#home" },
+    { name: "Sobre", href: "/#sobre" },
+    { name: "Ministrações", href: "/#ministracoes" },
+    { name: "Pedidos", href: "/#pedidos" },
+    { name: "Dizimos e Ofertas", href: "/#dizimos" },
   ];
 
   return (

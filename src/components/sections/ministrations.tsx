@@ -8,7 +8,7 @@ export const MinistrationsSection = () => {
       title: "A Graça que Transforma",
       description:
         "Uma mensagem poderosa sobre como a graça de Deus pode transformar completamente nossas vidas e nos dar uma nova perspectiva.",
-      link: "#",
+      link: "/ministracoes/a-graca-que-transforma",
       date: "15 de Agosto, 2025",
       image: "/1.jpg",
     },
@@ -16,7 +16,7 @@ export const MinistrationsSection = () => {
       title: "Fé em Tempos Difíceis",
       description:
         "Reflexões bíblicas sobre como manter a fé firme mesmo quando enfrentamos os maiores desafios da vida.",
-      link: "#",
+      link: "/ministracoes/fe-em-tempos-dificeis",
       date: "8 de Agosto, 2025",
       image: "/2.jpg",
     },
@@ -24,7 +24,7 @@ export const MinistrationsSection = () => {
       title: "O Amor que Não Falha",
       description:
         "Explorando o amor incondicional de Cristo e como podemos refletir esse amor em nossos relacionamentos diários.",
-      link: "#",
+      link: "/ministracoes/O-amor-que-nao-falha",
       date: "1 de Agosto, 2025",
       image: "/3.jpg",
     },
@@ -32,7 +32,7 @@ export const MinistrationsSection = () => {
       title: "Propósito Divino",
       description:
         "Descobrindo o plano de Deus para nossas vidas e como caminhar no centro da vontade divina com confiança.",
-      link: "#",
+      link: "/ministracoes/proposito-divino",
       date: "25 de Julho, 2025",
       image: "/4.jpg",
     },
